@@ -12,7 +12,7 @@ import { Icon } from "@iconify/vue";
         }
     });
 
-    defineEmits(["toggle-complete", "edit-todo", "update-todo"]);
+    defineEmits(["toggle-complete", "edit-todo", "update-todo", "delete-todo"]);
 </script>
 
 <template>
@@ -27,7 +27,7 @@ import { Icon } from "@iconify/vue";
         <div class="todo-actions">
             <Icon v-if="todo.isEditing" icon="ph:check-circle" class="icon" color="#41b080" width="22" @click="$emit('edit-todo', index)" />
             <Icon v-else icon="ph:pencil-fill" class="icon"  color="#41b080" width="22" @click="$emit('edit-todo', index)" />
-            <Icon icon="ph:trash" class="icon"  color="#f95e5e" width="22" />
+            <Icon icon="ph:trash" class="icon"  color="#f95e5e" width="22" @click="$emit('delete-todo', index)" />
         </div>
     </li>
 </template>
